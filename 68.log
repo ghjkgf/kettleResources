@@ -1,0 +1,112 @@
+2023/06/08 16:00:26 - Pan - 开始运行.
+2023/06/08 16:00:26 - 转换2 - 为了转换解除补丁开始  [转换2]
+2023/06/08 16:00:34 - 生成记录.0 - 完成处理 (I=0, O=0, R=0, W=1, U=0, E=0)
+2023/06/08 16:01:08 - REST client.0 - 完成处理 (I=0, O=0, R=1, W=1, U=0, E=0)
+2023/06/08 16:01:08 - JSON input.0 - 完成处理 (I=100, O=0, R=1, W=100, U=0, E=0)
+2023/06/08 16:02:21 - 插入 / 更新.0 - 完成处理 (I=100, O=0, R=100, W=100, U=0, E=0)
+2023/06/08 16:02:21 - Pan - 完成!
+2023/06/08 16:02:21 - Pan - 开始=2023/06/08 16:00:26.627, 停止=2023/06/08 16:02:21.486
+2023/06/08 16:02:21 - Pan - Processing ended after 1 minutes and 54 seconds (114 seconds total).
+2023/06/08 16:02:21 - 转换2 -  
+2023/06/08 16:02:21 - 转换2 - 进程 生成记录.0 成功结束, 处理了 1 行. ( 0 行/秒)
+2023/06/08 16:02:21 - 转换2 - 进程 REST client.0 成功结束, 处理了 1 行. ( 0 行/秒)
+2023/06/08 16:02:21 - 转换2 - 进程 JSON input.0 成功结束, 处理了 100 行. ( 0 行/秒)
+2023/06/08 16:02:21 - 转换2 - 进程 插入 / 更新.0 成功结束, 处理了 100 行. ( 0 行/秒)
+2023/06/08 16:13:40 - Pan - 开始运行.
+2023/06/08 16:13:40 - 转换2 - 为了转换解除补丁开始  [转换2]
+2023/06/08 16:13:45 - 生成记录.0 - 完成处理 (I=0, O=0, R=0, W=1, U=0, E=0)
+2023/06/08 16:13:55 - REST client.0 - 完成处理 (I=0, O=0, R=1, W=1, U=0, E=0)
+2023/06/08 16:13:56 - JSON input.0 - 完成处理 (I=100, O=0, R=1, W=100, U=0, E=0)
+2023/06/08 16:14:01 - 插入 / 更新.0 - ERROR (version 9.4.0.0-343, build 0.0 from 2022-11-08 07.50.27 by buildguy) : Error in step, asking everyone to stop because of:
+2023/06/08 16:14:01 - 插入 / 更新.0 - ERROR (version 9.4.0.0-343, build 0.0 from 2022-11-08 07.50.27 by buildguy) : org.pentaho.di.core.exception.KettleDatabaseException: 
+2023/06/08 16:14:01 - 插入 / 更新.0 - Error looking up row in database
+2023/06/08 16:14:01 - 插入 / 更新.0 - An I/O error occurred while sending to the backend.
+2023/06/08 16:14:01 - 插入 / 更新.0 - 
+2023/06/08 16:14:01 - 插入 / 更新.0 - 	at org.pentaho.di.core.database.Database.getLookup(Database.java:3103)
+2023/06/08 16:14:01 - 插入 / 更新.0 - 	at org.pentaho.di.core.database.Database.getLookup(Database.java:3082)
+2023/06/08 16:14:01 - 插入 / 更新.0 - 	at org.pentaho.di.core.database.Database.getLookup(Database.java:3078)
+2023/06/08 16:14:01 - 插入 / 更新.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.lookupValues(InsertUpdate.java:89)
+2023/06/08 16:14:01 - 插入 / 更新.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.processRow(InsertUpdate.java:299)
+2023/06/08 16:14:01 - 插入 / 更新.0 - 	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:62)
+2023/06/08 16:14:01 - 插入 / 更新.0 - 	at java.base/java.lang.Thread.run(Thread.java:834)
+2023/06/08 16:14:01 - 插入 / 更新.0 - Caused by: org.postgresql.util.PSQLException: An I/O error occurred while sending to the backend.
+2023/06/08 16:14:01 - 插入 / 更新.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:349)
+2023/06/08 16:14:01 - 插入 / 更新.0 - 	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:481)
+2023/06/08 16:14:01 - 插入 / 更新.0 - 	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:401)
+2023/06/08 16:14:01 - 插入 / 更新.0 - 	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:164)
+2023/06/08 16:14:01 - 插入 / 更新.0 - 	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:114)
+2023/06/08 16:14:01 - 插入 / 更新.0 - 	at org.pentaho.di.core.database.Database.getLookup(Database.java:3088)
+2023/06/08 16:14:01 - 插入 / 更新.0 - 	... 6 more
+2023/06/08 16:14:01 - 插入 / 更新.0 - Caused by: java.net.SocketException: Software caused connection abort: recv failed
+2023/06/08 16:14:01 - 插入 / 更新.0 - 	at java.base/java.net.SocketInputStream.socketRead0(Native Method)
+2023/06/08 16:14:01 - 插入 / 更新.0 - 	at java.base/java.net.SocketInputStream.socketRead(SocketInputStream.java:115)
+2023/06/08 16:14:01 - 插入 / 更新.0 - 	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:168)
+2023/06/08 16:14:01 - 插入 / 更新.0 - 	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:140)
+2023/06/08 16:14:01 - 插入 / 更新.0 - 	at org.postgresql.core.VisibleBufferedInputStream.readMore(VisibleBufferedInputStream.java:161)
+2023/06/08 16:14:01 - 插入 / 更新.0 - 	at org.postgresql.core.VisibleBufferedInputStream.ensureBytes(VisibleBufferedInputStream.java:128)
+2023/06/08 16:14:01 - 插入 / 更新.0 - 	at org.postgresql.core.VisibleBufferedInputStream.ensureBytes(VisibleBufferedInputStream.java:113)
+2023/06/08 16:14:01 - 插入 / 更新.0 - 	at org.postgresql.core.VisibleBufferedInputStream.read(VisibleBufferedInputStream.java:73)
+2023/06/08 16:14:01 - 插入 / 更新.0 - 	at org.postgresql.core.PGStream.receiveChar(PGStream.java:443)
+2023/06/08 16:14:01 - 插入 / 更新.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2056)
+2023/06/08 16:14:01 - 插入 / 更新.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:322)
+2023/06/08 16:14:01 - 插入 / 更新.0 - 	... 11 more
+2023/06/08 16:14:01 - 插入 / 更新.0 - ERROR (version 9.4.0.0-343, build 0.0 from 2022-11-08 07.50.27 by buildguy) : Unable to commit connection(s) :org.pentaho.di.core.exception.KettleDatabaseException: 
+2023/06/08 16:14:01 - 插入 / 更新.0 - Unable to get database metadata from this database connection
+2023/06/08 16:14:01 - 插入 / 更新.0 - This connection has been closed.
+2023/06/08 16:14:01 - 插入 / 更新.0 - 完成处理 (I=8, O=0, R=9, W=8, U=0, E=1)
+2023/06/08 16:14:02 - 转换2 - 转换被检测 
+2023/06/08 16:14:02 - Pan - 完成!
+2023/06/08 16:14:02 - Pan - 开始=2023/06/08 16:13:40.636, 停止=2023/06/08 16:14:02.161
+2023/06/08 16:14:02 - Pan - 21 秒后处理结束.
+2023/06/08 16:14:02 - 转换2 - 转换正在杀死其他步骤!
+2023/06/08 16:14:37 - Pan - 开始运行.
+2023/06/08 16:14:38 - 转换2 - 为了转换解除补丁开始  [转换2]
+2023/06/08 16:14:38 - 生成记录.0 - 完成处理 (I=0, O=0, R=0, W=1, U=0, E=0)
+2023/06/08 16:14:40 - REST client.0 - 完成处理 (I=0, O=0, R=1, W=1, U=0, E=0)
+2023/06/08 16:14:41 - JSON input.0 - 完成处理 (I=100, O=0, R=1, W=100, U=0, E=0)
+2023/06/08 16:14:56 - 插入 / 更新.0 - 完成处理 (I=100, O=100, R=100, W=100, U=0, E=0)
+2023/06/08 16:14:56 - Pan - 完成!
+2023/06/08 16:14:56 - Pan - 开始=2023/06/08 16:14:38.705, 停止=2023/06/08 16:14:56.588
+2023/06/08 16:14:56 - Pan - 17 秒后处理结束.
+2023/06/08 16:14:56 - 转换2 -  
+2023/06/08 16:14:56 - 转换2 - 进程 生成记录.0 成功结束, 处理了 1 行. ( 0 行/秒)
+2023/06/08 16:14:56 - 转换2 - 进程 REST client.0 成功结束, 处理了 1 行. ( 0 行/秒)
+2023/06/08 16:14:56 - 转换2 - 进程 JSON input.0 成功结束, 处理了 100 行. ( 5 行/秒)
+2023/06/08 16:14:56 - 转换2 - 进程 插入 / 更新.0 成功结束, 处理了 100 行. ( 5 行/秒)
+2023/06/08 16:15:50 - Pan - 开始运行.
+2023/06/08 16:15:51 - 转换2 - 为了转换解除补丁开始  [转换2]
+2023/06/08 16:15:51 - 生成记录.0 - ERROR (version 9.4.0.0-343, build 0.0 from 2022-11-08 07.50.27 by buildguy) : 不能解析类型为 Integer 的字段 [size],字段值 [${size}] --> org.pentaho.di.core.exception.KettleValueException: 
+2023/06/08 16:15:51 - 生成记录.0 - Unexpected conversion error while converting value [size String] to an Integer
+2023/06/08 16:15:51 - 生成记录.0 - 
+2023/06/08 16:15:51 - 生成记录.0 - size String : couldn't convert String to Integer
+2023/06/08 16:15:51 - 生成记录.0 - 
+2023/06/08 16:15:51 - 生成记录.0 - size String : couldn't convert String to number : non-numeric character found at position 1 for value [${size}]
+2023/06/08 16:15:51 - 生成记录.0 - ERROR (version 9.4.0.0-343, build 0.0 from 2022-11-08 07.50.27 by buildguy) : 错误初始化步骤[生成记录]
+2023/06/08 16:15:51 - 转换2 - ERROR (version 9.4.0.0-343, build 0.0 from 2022-11-08 07.50.27 by buildguy) : 步骤 [生成记录.0] 初始化失败!
+2023/06/08 16:16:23 - Pan - 开始运行.
+2023/06/08 16:16:23 - 转换2 - 为了转换解除补丁开始  [转换2]
+2023/06/08 16:16:23 - 生成记录.0 - ERROR (version 9.4.0.0-343, build 0.0 from 2022-11-08 07.50.27 by buildguy) : 不能解析类型为 Integer 的字段 [size],字段值 [${size}] --> org.pentaho.di.core.exception.KettleValueException: 
+2023/06/08 16:16:23 - 生成记录.0 - Unexpected conversion error while converting value [size String] to an Integer
+2023/06/08 16:16:23 - 生成记录.0 - 
+2023/06/08 16:16:23 - 生成记录.0 - size String : couldn't convert String to Integer
+2023/06/08 16:16:23 - 生成记录.0 - 
+2023/06/08 16:16:23 - 生成记录.0 - size String : couldn't convert String to number : non-numeric character found at position 1 for value [${size}]
+2023/06/08 16:16:23 - 生成记录.0 - ERROR (version 9.4.0.0-343, build 0.0 from 2022-11-08 07.50.27 by buildguy) : 错误初始化步骤[生成记录]
+2023/06/08 16:16:23 - 转换2 - ERROR (version 9.4.0.0-343, build 0.0 from 2022-11-08 07.50.27 by buildguy) : 步骤 [生成记录.0] 初始化失败!
+2023/06/08 16:24:33 - Pan - 开始运行.
+2023/06/08 16:24:33 - 转换2 - 为了转换解除补丁开始  [转换2]
+2023/06/08 16:24:33 - 生成记录.0 - 完成处理 (I=0, O=0, R=0, W=1, U=0, E=0)
+2023/06/08 16:24:33 - 获取变量.0 - 完成处理 (I=0, O=0, R=1, W=1, U=0, E=0)
+2023/06/08 16:24:33 - REST client.0 - ERROR (version 9.4.0.0-343, build 0.0 from 2022-11-08 07.50.27 by buildguy) : Unexpected error
+2023/06/08 16:24:33 - REST client.0 - ERROR (version 9.4.0.0-343, build 0.0 from 2022-11-08 07.50.27 by buildguy) : org.pentaho.di.core.exception.KettleException: 
+2023/06/08 16:24:33 - REST client.0 - Error finding field [size] in incoming stream!
+2023/06/08 16:24:33 - REST client.0 - 
+2023/06/08 16:24:33 - REST client.0 - 	at org.pentaho.di.trans.steps.rest.Rest.processRow(Rest.java:436)
+2023/06/08 16:24:33 - REST client.0 - 	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:62)
+2023/06/08 16:24:33 - REST client.0 - 	at java.base/java.lang.Thread.run(Thread.java:834)
+2023/06/08 16:24:33 - REST client.0 - 完成处理 (I=0, O=0, R=1, W=0, U=0, E=1)
+2023/06/08 16:24:33 - 转换2 - 转换被检测 
+2023/06/08 16:24:33 - 转换2 - 转换正在杀死其他步骤!
+2023/06/08 16:24:33 - Pan - 完成!
+2023/06/08 16:24:33 - Pan - 开始=2023/06/08 16:24:33.529, 停止=2023/06/08 16:24:33.931
+2023/06/08 16:24:33 - Pan - 0 秒后处理结束.
