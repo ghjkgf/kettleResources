@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>purchase_order</name>
+    <name>addConstant_test</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -427,14 +427,65 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2023/06/06 17:47:07.421</created_date>
+    <created_date>2023/06/12 09:56:42.672</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2023/06/06 17:47:07.421</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <modified_date>2023/06/12 09:56:42.672</modified_date>
+    <key_for_session_key/>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
+  <connection>
+    <name>cloud-dev</name>
+    <server>pgm-2zel6p26x75l753soo.pg.rds.aliyuncs.com</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>cloud_platform_dev</database>
+    <port>5432</port>
+    <username>spd</username>
+    <password>Encrypted 2be98afc839d796a4af1ba663fe8bbcdd</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>5432</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
   <connection>
     <name>spd_test_model</name>
     <server>spd.hiysg.com</server>
@@ -493,305 +544,15 @@
   <order>
     <hop>
       <from>表输入</from>
-      <to>添加医院代号</to>
+      <to>Add constants</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>添加医院代号</from>
-      <to>JSON output</to>
+      <from>Add constants</from>
+      <to>插入 / 更新</to>
       <enabled>Y</enabled>
     </hop>
   </order>
-  <step>
-    <name>JSON output</name>
-    <type>JsonOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <outputValue>outputValue</outputValue>
-    <jsonBloc>data</jsonBloc>
-    <nrRowsInBloc>0</nrRowsInBloc>
-    <operation_type>writetofile</operation_type>
-    <compatibility_mode>N</compatibility_mode>
-    <encoding>UTF-8</encoding>
-    <addtoresult>N</addtoresult>
-    <file>
-      <name/>
-      <extention>js</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <create_parent_folder>N</create_parent_folder>
-      <DoNotOpenNewFileInit>N</DoNotOpenNewFileInit>
-      <servlet_output>Y</servlet_output>
-    </file>
-    <fields>
-      <field>
-        <name>id</name>
-        <element>id</element>
-      </field>
-      <field>
-        <name>hospital_id</name>
-        <element>hospital_id</element>
-      </field>
-      <field>
-        <name>hospital_name</name>
-        <element>hospital_name</element>
-      </field>
-      <field>
-        <name>hospital_area_id</name>
-        <element>hospital_area_id</element>
-      </field>
-      <field>
-        <name>hospital_area_name</name>
-        <element>hospital_area_name</element>
-      </field>
-      <field>
-        <name>purchase_order_code</name>
-        <element>purchase_order_code</element>
-      </field>
-      <field>
-        <name>organization_id</name>
-        <element>organization_id</element>
-      </field>
-      <field>
-        <name>org_name</name>
-        <element>org_name</element>
-      </field>
-      <field>
-        <name>center_warehouse_id</name>
-        <element>center_warehouse_id</element>
-      </field>
-      <field>
-        <name>center_warehouse_name</name>
-        <element>center_warehouse_name</element>
-      </field>
-      <field>
-        <name>receive_user_name</name>
-        <element>receive_user_name</element>
-      </field>
-      <field>
-        <name>receive_user_telephone</name>
-        <element>receive_user_telephone</element>
-      </field>
-      <field>
-        <name>province_purchase_yn</name>
-        <element>province_purchase_yn</element>
-      </field>
-      <field>
-        <name>purchase_source</name>
-        <element>purchase_source</element>
-      </field>
-      <field>
-        <name>purchage_plan_id</name>
-        <element>purchage_plan_id</element>
-      </field>
-      <field>
-        <name>material_kind_num</name>
-        <element>material_kind_num</element>
-      </field>
-      <field>
-        <name>material_num</name>
-        <element>material_num</element>
-      </field>
-      <field>
-        <name>material_amount</name>
-        <element>material_amount</element>
-      </field>
-      <field>
-        <name>purchase_user_id</name>
-        <element>purchase_user_id</element>
-      </field>
-      <field>
-        <name>purchase_user_name</name>
-        <element>purchase_user_name</element>
-      </field>
-      <field>
-        <name>apply_time</name>
-        <element>apply_time</element>
-      </field>
-      <field>
-        <name>audit_user_id</name>
-        <element>audit_user_id</element>
-      </field>
-      <field>
-        <name>audit_user_name</name>
-        <element>audit_user_name</element>
-      </field>
-      <field>
-        <name>audit_time</name>
-        <element>audit_time</element>
-      </field>
-      <field>
-        <name>audit_remark</name>
-        <element>audit_remark</element>
-      </field>
-      <field>
-        <name>order_user_id</name>
-        <element>order_user_id</element>
-      </field>
-      <field>
-        <name>order_user_name</name>
-        <element>order_user_name</element>
-      </field>
-      <field>
-        <name>order_time</name>
-        <element>order_time</element>
-      </field>
-      <field>
-        <name>order_remark</name>
-        <element>order_remark</element>
-      </field>
-      <field>
-        <name>close_user_id</name>
-        <element>close_user_id</element>
-      </field>
-      <field>
-        <name>close_user_name</name>
-        <element>close_user_name</element>
-      </field>
-      <field>
-        <name>close_time</name>
-        <element>close_time</element>
-      </field>
-      <field>
-        <name>close_reason</name>
-        <element>close_reason</element>
-      </field>
-      <field>
-        <name>order_complete_time</name>
-        <element>order_complete_time</element>
-      </field>
-      <field>
-        <name>purchase_order_status</name>
-        <element>purchase_order_status</element>
-      </field>
-      <field>
-        <name>purchase_order_source</name>
-        <element>purchase_order_source</element>
-      </field>
-      <field>
-        <name>send_result</name>
-        <element>send_result</element>
-      </field>
-      <field>
-        <name>order_push_status</name>
-        <element>order_push_status</element>
-      </field>
-      <field>
-        <name>purchase_plan_no</name>
-        <element>purchase_plan_no</element>
-      </field>
-      <field>
-        <name>waybill_status</name>
-        <element>waybill_status</element>
-      </field>
-      <field>
-        <name>send_status</name>
-        <element>send_status</element>
-      </field>
-      <field>
-        <name>purchase_style</name>
-        <element>purchase_style</element>
-      </field>
-      <field>
-        <name>tenders_style</name>
-        <element>tenders_style</element>
-      </field>
-      <field>
-        <name>sale_yn</name>
-        <element>sale_yn</element>
-      </field>
-      <field>
-        <name>steri_yn</name>
-        <element>steri_yn</element>
-      </field>
-      <field>
-        <name>volume_based_purchase_yn</name>
-        <element>volume_based_purchase_yn</element>
-      </field>
-      <field>
-        <name>material_choice_type</name>
-        <element>material_choice_type</element>
-      </field>
-      <field>
-        <name>material_value_type</name>
-        <element>material_value_type</element>
-      </field>
-      <field>
-        <name>store_condition</name>
-        <element>store_condition</element>
-      </field>
-      <field>
-        <name>transport_condition</name>
-        <element>transport_condition</element>
-      </field>
-      <field>
-        <name>receive_user_id</name>
-        <element>receive_user_id</element>
-      </field>
-      <field>
-        <name>urgent_yn</name>
-        <element>urgent_yn</element>
-      </field>
-      <field>
-        <name>create_by</name>
-        <element>create_by</element>
-      </field>
-      <field>
-        <name>create_user_name</name>
-        <element>create_user_name</element>
-      </field>
-      <field>
-        <name>create_time</name>
-        <element>create_time</element>
-      </field>
-      <field>
-        <name>update_by</name>
-        <element>update_by</element>
-      </field>
-      <field>
-        <name>update_user_name</name>
-        <element>update_user_name</element>
-      </field>
-      <field>
-        <name>update_time</name>
-        <element>update_time</element>
-      </field>
-      <field>
-        <name>material_use_type</name>
-        <element>material_use_type</element>
-      </field>
-      <field>
-        <name>hin_facility_ident</name>
-        <element>hin_facility_ident</element>
-      </field>
-      <field>
-        <name>mixed_time</name>
-        <element>mixed_time</element>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>400</xloc>
-      <yloc>208</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
   <step>
     <name>表输入</name>
     <type>TableInput</type>
@@ -804,10 +565,7 @@
       <schema_name/>
     </partitioning>
     <connection>spd_test_model</connection>
-    <sql>SELECT tmp.* from (
-SELECT *,COALESCE(update_time,create_time) mixed_time from purchase_order 
-) tmp
-where tmp.mixed_time>to_timestamp('${starttime}', 'YYYY/MM/DD HH24:MI:SS.US') ORDER BY mixed_time limit ${size} </sql>
+    <sql>SELECT od.* from purchase_order  od  where od.update_time>'2023-06-06' limit 10</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -2172,29 +1930,6 @@ where tmp.mixed_time>to_timestamp('${starttime}', 'YYYY/MM/DD HH24:MI:SS.US') OR
         <date_format_timezone>Asia/Shanghai</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>hin_facility_ident</name>
-        <length>2147483647</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>hin_facility_ident</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
     </row-meta>
     <attributes/>
     <cluster_schema/>
@@ -2205,13 +1940,357 @@ where tmp.mixed_time>to_timestamp('${starttime}', 'YYYY/MM/DD HH24:MI:SS.US') OR
       </output>
     </remotesteps>
     <GUI>
-      <xloc>192</xloc>
-      <yloc>208</yloc>
+      <xloc>322</xloc>
+      <yloc>380</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>添加医院代号</name>
+    <name>插入 / 更新</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>cloud-dev</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema>cloud_platform</schema>
+      <table>spd_purchase_order</table>
+      <key>
+        <name>id</name>
+        <field>id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>hin_facility_ident</name>
+        <field>hin_facility_ident</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>apply_time</name>
+        <rename>apply_time</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>audit_remark</name>
+        <rename>audit_remark</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>audit_time</name>
+        <rename>audit_time</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>audit_user_id</name>
+        <rename>audit_user_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>audit_user_name</name>
+        <rename>audit_user_name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>center_warehouse_id</name>
+        <rename>center_warehouse_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>center_warehouse_name</name>
+        <rename>center_warehouse_name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>close_reason</name>
+        <rename>close_reason</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>close_time</name>
+        <rename>close_time</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>close_user_id</name>
+        <rename>close_user_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>close_user_name</name>
+        <rename>close_user_name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>create_by</name>
+        <rename>create_by</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>create_time</name>
+        <rename>create_time</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>create_user_name</name>
+        <rename>create_user_name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>hin_facility_ident</name>
+        <rename>hin_facility_ident</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>hospital_area_id</name>
+        <rename>hospital_area_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>hospital_area_name</name>
+        <rename>hospital_area_name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>hospital_id</name>
+        <rename>hospital_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>hospital_name</name>
+        <rename>hospital_name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>id</name>
+        <rename>id</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>material_amount</name>
+        <rename>material_amount</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>material_choice_type</name>
+        <rename>material_choice_type</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>material_kind_num</name>
+        <rename>material_kind_num</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>material_num</name>
+        <rename>material_num</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>material_use_type</name>
+        <rename>material_use_type</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>material_value_type</name>
+        <rename>material_value_type</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>order_complete_time</name>
+        <rename>order_complete_time</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>order_push_status</name>
+        <rename>order_push_status</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>order_remark</name>
+        <rename>order_remark</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>order_time</name>
+        <rename>order_time</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>order_user_id</name>
+        <rename>order_user_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>order_user_name</name>
+        <rename>order_user_name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>org_name</name>
+        <rename>org_name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>organization_id</name>
+        <rename>organization_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>province_purchase_yn</name>
+        <rename>province_purchase_yn</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>purchage_plan_id</name>
+        <rename>purchage_plan_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>purchase_order_code</name>
+        <rename>purchase_order_code</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>purchase_order_source</name>
+        <rename>purchase_order_source</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>purchase_order_status</name>
+        <rename>purchase_order_status</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>purchase_plan_no</name>
+        <rename>purchase_plan_no</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>purchase_source</name>
+        <rename>purchase_source</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>purchase_style</name>
+        <rename>purchase_style</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>purchase_user_id</name>
+        <rename>purchase_user_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>purchase_user_name</name>
+        <rename>purchase_user_name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>receive_user_id</name>
+        <rename>receive_user_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>receive_user_name</name>
+        <rename>receive_user_name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>receive_user_telephone</name>
+        <rename>receive_user_telephone</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>sale_yn</name>
+        <rename>sale_yn</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>send_result</name>
+        <rename>send_result</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>send_status</name>
+        <rename>send_status</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>steri_yn</name>
+        <rename>steri_yn</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>store_condition</name>
+        <rename>store_condition</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>tenders_style</name>
+        <rename>tenders_style</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>transport_condition</name>
+        <rename>transport_condition</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>update_by</name>
+        <rename>update_by</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>update_time</name>
+        <rename>update_time</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>update_user_name</name>
+        <rename>update_user_name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>urgent_yn</name>
+        <rename>urgent_yn</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>volume_based_purchase_yn</name>
+        <rename>volume_based_purchase_yn</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>waybill_status</name>
+        <rename>waybill_status</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>611</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add constants</name>
     <type>Constant</type>
     <description/>
     <distribute>Y</distribute>
@@ -2229,7 +2308,7 @@ where tmp.mixed_time>to_timestamp('${starttime}', 'YYYY/MM/DD HH24:MI:SS.US') OR
         <currency/>
         <decimal/>
         <group/>
-        <nullif>spd_test</nullif>
+        <nullif>zsl</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -2244,8 +2323,8 @@ where tmp.mixed_time>to_timestamp('${starttime}', 'YYYY/MM/DD HH24:MI:SS.US') OR
       </output>
     </remotesteps>
     <GUI>
-      <xloc>288</xloc>
-      <yloc>208</yloc>
+      <xloc>448</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

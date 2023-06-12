@@ -494,16 +494,6 @@
   </connection>
   <order>
     <hop>
-      <from>生成记录</from>
-      <to>REST client</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>REST client</from>
-      <to>JSON input</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>JSON input</from>
       <to>插入 / 更新</to>
       <enabled>Y</enabled>
@@ -514,13 +504,48 @@
       <enabled>N</enabled>
     </hop>
     <hop>
-      <from>获取系统信息</from>
+      <from>表输入</from>
       <to>REST client</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>REST client</from>
+      <to>过滤记录</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>过滤记录</from>
+      <to>JSON input</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>过滤记录</from>
+      <to>空操作 (什么也不做)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add constants</from>
+      <to>更新</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>JSON input</from>
+      <to>排序记录</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>排序记录</from>
+      <to>分组</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>分组</from>
+      <to>文本文件输出</to>
       <enabled>N</enabled>
     </hop>
     <hop>
-      <from>表输入</from>
-      <to>REST client</to>
+      <from>分组</from>
+      <to>Add constants</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -528,7 +553,7 @@
     <name>JSON input</name>
     <type>JsonInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -1335,6 +1360,19 @@
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
+      <field>
+        <name>mixed_time</name>
+        <path>$.data[*].mixed_time</path>
+        <type>Timestamp</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
     </fields>
     <limit>0</limit>
     <IsInFields>Y</IsInFields>
@@ -1395,6 +1433,10 @@
         <field>size</field>
         <name>size</name>
       </parameter>
+      <parameter>
+        <field>starttime</field>
+        <name>starttime</name>
+      </parameter>
     </parameters>
     <matrixParameters>
       </matrixParameters>
@@ -1413,7 +1455,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>432</xloc>
+      <xloc>352</xloc>
       <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1757,7 +1799,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>880</xloc>
+      <xloc>832</xloc>
       <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1805,20 +1847,8 @@
     </file>
     <fields>
       <field>
-        <name>url</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>size</name>
-        <type>Integer</type>
+        <name>max</name>
+        <type>Timestamp</type>
         <format/>
         <currency/>
         <decimal/>
@@ -1838,83 +1868,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>432</xloc>
-      <yloc>384</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>生成记录</name>
-    <type>RowGenerator</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>url</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>http://127.0.0.1:8098/kettle/executeTrans/?trans=C:/Users/hougu/Desktop/kettleResources/purchase_order.ktr</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <limit>1</limit>
-    <never_ending>N</never_ending>
-    <interval_in_ms>5000</interval_in_ms>
-    <row_time_field>now</row_time_field>
-    <last_time_field>FiveSecondsAgo</last_time_field>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>272</xloc>
-      <yloc>208</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>获取系统信息</name>
-    <type>SystemInfo</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>size</name>
-        <type>command line argument 1</type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>320</xloc>
-      <yloc>64</yloc>
+      <xloc>240</xloc>
+      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1930,14 +1885,38 @@
       <schema_name/>
     </partitioning>
     <connection>cloud-dev</connection>
-    <sql>SELECT ${size} as size</sql>
+    <sql>select last_update_time as starttime,data_num as size from cloud_platform.etl_data_transmission 
+where table_name = 'purchase_order' and hospital_name = 'spd_test';</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
-    <variables_active>Y</variables_active>
+    <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
     <cached_row_meta_active>N</cached_row_meta_active>
     <row-meta>
+      <value-meta>
+        <type>Timestamp</type>
+        <storagetype>normal</storagetype>
+        <name>starttime</name>
+        <length>6</length>
+        <precision>-1</precision>
+        <origin>表输入</origin>
+        <comments>starttime</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>zh_CN</date_format_locale>
+        <date_format_timezone>Asia/Shanghai</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
       <value-meta>
         <type>Integer</type>
         <storagetype>normal</storagetype>
@@ -1971,8 +1950,255 @@
       </output>
     </remotesteps>
     <GUI>
+      <xloc>176</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>空操作 (什么也不做)</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>528</xloc>
+      <yloc>64</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>过滤记录</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>JSON input</send_true_to>
+    <send_false_to>空操作 (什么也不做)</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>content</leftvalue>
+        <function>IS NOT NULL</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>528</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>更新</name>
+    <type>Update</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>cloud-dev</connection>
+    <skip_lookup>N</skip_lookup>
+    <commit>100</commit>
+    <use_batch>N</use_batch>
+    <error_ignored>N</error_ignored>
+    <ignore_flag_field/>
+    <lookup>
+      <schema>cloud_platform</schema>
+      <table>etl_data_transmission</table>
+      <key>
+        <name>hospitalname</name>
+        <field>hospital_name</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>tablename</name>
+        <field>table_name</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>last_update_time</name>
+        <rename>max</rename>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>768</xloc>
+      <yloc>560</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add constants</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>tablename</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>purchase_order</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>hospitalname</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>spd_test</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>672</xloc>
+      <yloc>560</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>分组</name>
+    <type>GroupBy</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <all_rows>N</all_rows>
+    <ignore_aggregate>N</ignore_aggregate>
+    <field_ignore/>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>grp</prefix>
+    <add_linenr>N</add_linenr>
+    <linenr_fieldname/>
+    <give_back_row>N</give_back_row>
+    <group>
+      </group>
+    <fields>
+      <field>
+        <aggregate>max</aggregate>
+        <subject>mixed_time</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>512</xloc>
-      <yloc>48</yloc>
+      <yloc>560</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>排序记录</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>Y</unique_rows>
+    <fields>
+      <field>
+        <name>mixed_time</name>
+        <ascending>N</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>512</xloc>
+      <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
