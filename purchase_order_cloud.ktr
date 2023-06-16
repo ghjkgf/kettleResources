@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>转换2</name>
+    <name>purchase_order_cloud</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -1465,7 +1465,7 @@
     <applicationType>JSON</applicationType>
     <method>POST</method>
     <url>http://127.0.0.1:8098/kettle/executeTrans/?trans=C:/Users/hougu/Desktop/kettleResources/purchase_order.ktr</url>
-    <urlInField>N</urlInField>
+    <urlInField>Y</urlInField>
     <dynamicMethod>N</dynamicMethod>
     <methodFieldName/>
     <urlField>url</urlField>
@@ -2097,7 +2097,7 @@
       <schema_name/>
     </partitioning>
     <connection>cloud</connection>
-    <sql>select last_update_time as starttime,data_num as size from cloud_platform.etl_data_transmission 
+    <sql>select last_update_time as starttime,data_num as size,url as url from cloud_platform.etl_data_transmission 
 where table_name = 'purchase_order' and hospital_name = 'spdtest';</sql>
     <limit>0</limit>
     <lookup/>
@@ -2138,6 +2138,29 @@ where table_name = 'purchase_order' and hospital_name = 'spdtest';</sql>
         <origin>表输入</origin>
         <comments>size</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>zh_CN</date_format_locale>
+        <date_format_timezone>Asia/Shanghai</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>url</name>
+        <length>500</length>
+        <precision>-1</precision>
+        <origin>表输入</origin>
+        <comments>url</comments>
+        <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
         <currency_symbol/>

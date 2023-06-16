@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>purchase_order</name>
+    <name>way_bill</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -427,10 +427,10 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2023/06/06 17:47:07.421</created_date>
+    <created_date>2023/06/16 13:24:18.334</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2023/06/06 17:47:07.421</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <modified_date>2023/06/16 13:24:18.334</modified_date>
+    <key_for_session_key/>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -555,8 +555,12 @@
         <element>hospital_area_name</element>
       </field>
       <field>
-        <name>purchase_order_code</name>
-        <element>purchase_order_code</element>
+        <name>way_bill_no</name>
+        <element>way_bill_no</element>
+      </field>
+      <field>
+        <name>supplier_waybill_code</name>
+        <element>supplier_waybill_code</element>
       </field>
       <field>
         <name>organization_id</name>
@@ -575,128 +579,32 @@
         <element>center_warehouse_name</element>
       </field>
       <field>
-        <name>receive_user_name</name>
-        <element>receive_user_name</element>
+        <name>bill_status</name>
+        <element>bill_status</element>
       </field>
       <field>
-        <name>receive_user_telephone</name>
-        <element>receive_user_telephone</element>
+        <name>has_volume_based_purchase_yn</name>
+        <element>has_volume_based_purchase_yn</element>
       </field>
       <field>
-        <name>province_purchase_yn</name>
-        <element>province_purchase_yn</element>
+        <name>sale_yn</name>
+        <element>sale_yn</element>
       </field>
       <field>
-        <name>purchase_source</name>
-        <element>purchase_source</element>
+        <name>has_temp_purchase_yn</name>
+        <element>has_temp_purchase_yn</element>
       </field>
       <field>
-        <name>purchage_plan_id</name>
-        <element>purchage_plan_id</element>
+        <name>has_high_value_material_yn</name>
+        <element>has_high_value_material_yn</element>
       </field>
       <field>
-        <name>material_kind_num</name>
-        <element>material_kind_num</element>
+        <name>barcode_bill_yn</name>
+        <element>barcode_bill_yn</element>
       </field>
       <field>
-        <name>material_num</name>
-        <element>material_num</element>
-      </field>
-      <field>
-        <name>material_amount</name>
-        <element>material_amount</element>
-      </field>
-      <field>
-        <name>purchase_user_id</name>
-        <element>purchase_user_id</element>
-      </field>
-      <field>
-        <name>purchase_user_name</name>
-        <element>purchase_user_name</element>
-      </field>
-      <field>
-        <name>apply_time</name>
-        <element>apply_time</element>
-      </field>
-      <field>
-        <name>audit_user_id</name>
-        <element>audit_user_id</element>
-      </field>
-      <field>
-        <name>audit_user_name</name>
-        <element>audit_user_name</element>
-      </field>
-      <field>
-        <name>audit_time</name>
-        <element>audit_time</element>
-      </field>
-      <field>
-        <name>audit_remark</name>
-        <element>audit_remark</element>
-      </field>
-      <field>
-        <name>order_user_id</name>
-        <element>order_user_id</element>
-      </field>
-      <field>
-        <name>order_user_name</name>
-        <element>order_user_name</element>
-      </field>
-      <field>
-        <name>order_time</name>
-        <element>order_time</element>
-      </field>
-      <field>
-        <name>order_remark</name>
-        <element>order_remark</element>
-      </field>
-      <field>
-        <name>close_user_id</name>
-        <element>close_user_id</element>
-      </field>
-      <field>
-        <name>close_user_name</name>
-        <element>close_user_name</element>
-      </field>
-      <field>
-        <name>close_time</name>
-        <element>close_time</element>
-      </field>
-      <field>
-        <name>close_reason</name>
-        <element>close_reason</element>
-      </field>
-      <field>
-        <name>order_complete_time</name>
-        <element>order_complete_time</element>
-      </field>
-      <field>
-        <name>purchase_order_status</name>
-        <element>purchase_order_status</element>
-      </field>
-      <field>
-        <name>purchase_order_source</name>
-        <element>purchase_order_source</element>
-      </field>
-      <field>
-        <name>send_result</name>
-        <element>send_result</element>
-      </field>
-      <field>
-        <name>order_push_status</name>
-        <element>order_push_status</element>
-      </field>
-      <field>
-        <name>purchase_plan_no</name>
-        <element>purchase_plan_no</element>
-      </field>
-      <field>
-        <name>waybill_status</name>
-        <element>waybill_status</element>
-      </field>
-      <field>
-        <name>send_status</name>
-        <element>send_status</element>
+        <name>material_choice_type</name>
+        <element>material_choice_type</element>
       </field>
       <field>
         <name>purchase_style</name>
@@ -707,26 +615,6 @@
         <element>tenders_style</element>
       </field>
       <field>
-        <name>sale_yn</name>
-        <element>sale_yn</element>
-      </field>
-      <field>
-        <name>steri_yn</name>
-        <element>steri_yn</element>
-      </field>
-      <field>
-        <name>volume_based_purchase_yn</name>
-        <element>volume_based_purchase_yn</element>
-      </field>
-      <field>
-        <name>material_choice_type</name>
-        <element>material_choice_type</element>
-      </field>
-      <field>
-        <name>material_value_type</name>
-        <element>material_value_type</element>
-      </field>
-      <field>
         <name>store_condition</name>
         <element>store_condition</element>
       </field>
@@ -735,12 +623,40 @@
         <element>transport_condition</element>
       </field>
       <field>
-        <name>receive_user_id</name>
-        <element>receive_user_id</element>
+        <name>waybill_description</name>
+        <element>waybill_description</element>
       </field>
       <field>
-        <name>urgent_yn</name>
-        <element>urgent_yn</element>
+        <name>express_code</name>
+        <element>express_code</element>
+      </field>
+      <field>
+        <name>express_name</name>
+        <element>express_name</element>
+      </field>
+      <field>
+        <name>material_num</name>
+        <element>material_num</element>
+      </field>
+      <field>
+        <name>material_amount</name>
+        <element>material_amount</element>
+      </field>
+      <field>
+        <name>remark</name>
+        <element>remark</element>
+      </field>
+      <field>
+        <name>reject_reason</name>
+        <element>reject_reason</element>
+      </field>
+      <field>
+        <name>appendix_info_id</name>
+        <element>appendix_info_id</element>
+      </field>
+      <field>
+        <name>data_source</name>
+        <element>data_source</element>
       </field>
       <field>
         <name>create_by</name>
@@ -767,16 +683,12 @@
         <element>update_time</element>
       </field>
       <field>
-        <name>material_use_type</name>
-        <element>material_use_type</element>
+        <name>mixed_time</name>
+        <element>mixed_time</element>
       </field>
       <field>
         <name>hin_facility_ident</name>
         <element>hin_facility_ident</element>
-      </field>
-      <field>
-        <name>mixed_time</name>
-        <element>mixed_time</element>
       </field>
     </fields>
     <attributes/>
@@ -788,8 +700,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
-      <yloc>224</yloc>
+      <xloc>645</xloc>
+      <yloc>254</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -806,7 +718,7 @@
     </partitioning>
     <connection>spd</connection>
     <sql>SELECT tmp.*,? as hin_facility_ident from (
-SELECT *,COALESCE(update_time,create_time) mixed_time from purchase_order
+SELECT *,COALESCE(update_time,create_time) mixed_time from way_bill
 ) tmp
 where tmp.mixed_time>=to_timestamp('${starttime}', 'YYYY/MM/DD HH24:MI:SS.US') ORDER BY mixed_time limit ${size} </sql>
     <limit>0</limit>
@@ -1700,8 +1612,8 @@ where tmp.mixed_time>=to_timestamp('${starttime}', 'YYYY/MM/DD HH24:MI:SS.US') O
       </output>
     </remotesteps>
     <GUI>
-      <xloc>490</xloc>
-      <yloc>220</yloc>
+      <xloc>437</xloc>
+      <yloc>254</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1770,8 +1682,8 @@ where tmp.mixed_time>=to_timestamp('${starttime}', 'YYYY/MM/DD HH24:MI:SS.US') O
       </output>
     </remotesteps>
     <GUI>
-      <xloc>197</xloc>
-      <yloc>222</yloc>
+      <xloc>144</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1802,8 +1714,8 @@ where tmp.mixed_time>=to_timestamp('${starttime}', 'YYYY/MM/DD HH24:MI:SS.US') O
       </output>
     </remotesteps>
     <GUI>
-      <xloc>341</xloc>
-      <yloc>222</yloc>
+      <xloc>288</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
