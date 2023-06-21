@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>material_kind_cloud</name>
+    <name>connectCheck</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -508,11 +509,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>表输入</from>
-      <to>REST client</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>分组</from>
       <to>更新</to>
       <enabled>Y</enabled>
@@ -540,6 +536,26 @@
     <hop>
       <from>Switch / case</from>
       <to>空操作 (什么也不做)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>表输入</from>
+      <to>检查web服务是否可用</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>检查web服务是否可用</from>
+      <to>Switch / case 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Switch / case 2</from>
+      <to>REST client</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Switch / case 2</from>
+      <to>空操作 (什么也不做) 2</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -927,6 +943,54 @@
     </GUI>
   </step>
   <step>
+    <name>JavaScript代码</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>if(content == ""){
+	var isEmpty = 1;
+}else {
+    var isEmpty = 0;
+}</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>isEmpty</name>
+        <rename>isEmpty</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>534</xloc>
+      <yloc>422</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>REST client</name>
     <type>Rest</type>
     <description/>
@@ -983,6 +1047,48 @@
     <GUI>
       <xloc>352</xloc>
       <yloc>432</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Switch / case</name>
+    <type>SwitchCase</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fieldname>isEmpty</fieldname>
+    <use_contains>N</use_contains>
+    <case_value_type>None</case_value_type>
+    <case_value_format/>
+    <case_value_decimal/>
+    <case_value_group/>
+    <default_target_step>JSON input</default_target_step>
+    <cases>
+      <case>
+        <value>1</value>
+        <target_step>空操作 (什么也不做)</target_step>
+      </case>
+      <case>
+        <value>0</value>
+        <target_step>JSON input</target_step>
+      </case>
+    </cases>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>726</xloc>
+      <yloc>422</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1330,6 +1436,31 @@
     </GUI>
   </step>
   <step>
+    <name>空操作 (什么也不做)</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>726</xloc>
+      <yloc>582</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>自定义常量数据</name>
     <type>DataGrid</type>
     <description/>
@@ -1377,7 +1508,7 @@
     <name>表输入</name>
     <type>TableInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -1479,7 +1610,78 @@ where table_name = ? and hospital_name = 'spdtest';</sql>
     </GUI>
   </step>
   <step>
-    <name>空操作 (什么也不做)</name>
+    <name>检查web服务是否可用</name>
+    <type>WebServiceAvailable</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <urlField>url</urlField>
+    <readTimeOut>0</readTimeOut>
+    <connectTimeOut>0</connectTimeOut>
+    <resultfieldname>result</resultfieldname>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>224</xloc>
+      <yloc>560</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Switch / case 2</name>
+    <type>SwitchCase</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fieldname>result</fieldname>
+    <use_contains>N</use_contains>
+    <case_value_type>None</case_value_type>
+    <case_value_format/>
+    <case_value_decimal/>
+    <case_value_group/>
+    <default_target_step/>
+    <cases>
+      <case>
+        <value>N</value>
+        <target_step>空操作 (什么也不做) 2</target_step>
+      </case>
+      <case>
+        <value>Y</value>
+        <target_step>REST client</target_step>
+      </case>
+    </cases>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>320</xloc>
+      <yloc>656</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>空操作 (什么也不做) 2</name>
     <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
@@ -1498,102 +1700,24 @@ where table_name = ? and hospital_name = 'spdtest';</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>726</xloc>
-      <yloc>582</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Switch / case</name>
-    <type>SwitchCase</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fieldname>isEmpty</fieldname>
-    <use_contains>N</use_contains>
-    <case_value_type>None</case_value_type>
-    <case_value_format/>
-    <case_value_decimal/>
-    <case_value_group/>
-    <default_target_step>JSON input</default_target_step>
-    <cases>
-      <case>
-        <value>1</value>
-        <target_step>空操作 (什么也不做)</target_step>
-      </case>
-      <case>
-        <value>0</value>
-        <target_step>JSON input</target_step>
-      </case>
-    </cases>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>726</xloc>
-      <yloc>422</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>JavaScript代码</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>if(content == ""){
-	var isEmpty = 1;
-}else {
-    var isEmpty = 0;
-}</jsScript_script>
-      </jsScript>
-    </jsScripts>
-    <fields>
-      <field>
-        <name>isEmpty</name>
-        <rename>isEmpty</rename>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>534</xloc>
-      <yloc>422</yloc>
+      <xloc>468</xloc>
+      <yloc>704</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step_error_handling>
+    <error>
+      <source_step>检查web服务是否可用</source_step>
+      <target_step>空操作 (什么也不做) 2</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
   </step_error_handling>
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>

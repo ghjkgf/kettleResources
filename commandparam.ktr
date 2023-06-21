@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>material_kind_cloud</name>
+    <name>purchase_order_detail_cloud_test</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
+      <parameter>
+        <name>hospitalname</name>
+        <default_value>spdtest</default_value>
+        <description/>
+      </parameter>
     </parameters>
     <log>
       <trans-log-table>
@@ -427,9 +433,9 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2023/06/16 17:02:12.072</created_date>
+    <created_date>2023/06/15 15:04:25.663</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2023/06/16 17:02:12.072</modified_date>
+    <modified_date>2023/06/15 15:04:25.663</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -493,18 +499,8 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>JSON input</from>
-      <to>插入 / 更新</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>字段选择</from>
       <to>表输入</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>自定义常量数据</from>
-      <to>字段选择</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -513,13 +509,23 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>排序记录</from>
+      <to>分组</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>分组</from>
       <to>更新</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>排序记录</from>
-      <to>分组</to>
+      <from>JSON input</from>
+      <to>插入 / 更新</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Switch / case</from>
+      <to>空操作 (什么也不做)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -538,8 +544,8 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Switch / case</from>
-      <to>空操作 (什么也不做)</to>
+      <from>自定义常量数据</from>
+      <to>字段选择</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -601,6 +607,19 @@
         <repeat>N</repeat>
       </field>
       <field>
+        <name>hospital_name</name>
+        <path>$.data[*].hospital_name</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
         <name>hospital_area_id</name>
         <path>$.data[*].hospital_area_id</path>
         <type>String</type>
@@ -614,8 +633,8 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>material_kind_code</name>
-        <path>$.data[*].material_kind_code</path>
+        <name>hospital_area_name</name>
+        <path>$.data[*].hospital_area_name</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -627,8 +646,8 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>material_kind_name</name>
-        <path>$.data[*].material_kind_name</path>
+        <name>department_id</name>
+        <path>$.data[*].department_id</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -640,8 +659,8 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>material_code_prefix</name>
-        <path>$.data[*].material_code_prefix</path>
+        <name>department_name</name>
+        <path>$.data[*].department_name</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -653,21 +672,8 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>sort</name>
-        <path>$.data[*].sort</path>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>material_category</name>
-        <path>$.data[*].material_category</path>
+        <name>department_warehouse_id</name>
+        <path>$.data[*].department_warehouse_id</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -679,8 +685,8 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>parent_material_kind_id</name>
-        <path>$.data[*].parent_material_kind_id</path>
+        <name>department_warehouse_name</name>
+        <path>$.data[*].department_warehouse_name</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -692,8 +698,8 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>all_parent_material_kind_id</name>
-        <path>$.data[*].all_parent_material_kind_id</path>
+        <name>purchase_order_id</name>
+        <path>$.data[*].purchase_order_id</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -705,21 +711,8 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>material_kind_level</name>
-        <path>$.data[*].material_kind_level</path>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>material_kind_pinyin</name>
-        <path>$.data[*].material_kind_pinyin</path>
+        <name>purchase_order_code</name>
+        <path>$.data[*].purchase_order_code</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -731,8 +724,8 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>material_kind_wubi</name>
-        <path>$.data[*].material_kind_wubi</path>
+        <name>purchase_plan_detail_id</name>
+        <path>$.data[*].purchase_plan_detail_id</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -744,8 +737,8 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>status</name>
-        <path>$.data[*].status</path>
+        <name>province_code1</name>
+        <path>$.data[*].province_code1</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -757,8 +750,437 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>obsolete_yn</name>
-        <path>$.data[*].obsolete_yn</path>
+        <name>province_code2</name>
+        <path>$.data[*].province_code2</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>province_code3</name>
+        <path>$.data[*].province_code3</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>material_id</name>
+        <path>$.data[*].material_id</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>material_code</name>
+        <path>$.data[*].material_code</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>material_name</name>
+        <path>$.data[*].material_name</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>material_type</name>
+        <path>$.data[*].material_type</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>manufacture_id</name>
+        <path>$.data[*].manufacture_id</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>manufacture_name</name>
+        <path>$.data[*].manufacture_name</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>material_brand_name</name>
+        <path>$.data[*].material_brand_name</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>material_spec</name>
+        <path>$.data[*].material_spec</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>material_model</name>
+        <path>$.data[*].material_model</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>material_spec_model</name>
+        <path>$.data[*].material_spec_model</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>material_unit</name>
+        <path>$.data[*].material_unit</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>material_package_unit</name>
+        <path>$.data[*].material_package_unit</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>organization_id</name>
+        <path>$.data[*].organization_id</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>org_name</name>
+        <path>$.data[*].org_name</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>purchase_source</name>
+        <path>$.data[*].purchase_source</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>material_price</name>
+        <path>$.data[*].material_price</path>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>material_num</name>
+        <path>$.data[*].material_num</path>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>material_amount</name>
+        <path>$.data[*].material_amount</path>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>receive_num</name>
+        <path>$.data[*].receive_num</path>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>shippable_num</name>
+        <path>$.data[*].shippable_num</path>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>purchase_order_detail_status</name>
+        <path>$.data[*].purchase_order_detail_status</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>charge_style</name>
+        <path>$.data[*].charge_style</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>material_choice_type</name>
+        <path>$.data[*].material_choice_type</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>material_value_type</name>
+        <path>$.data[*].material_value_type</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>purchase_style</name>
+        <path>$.data[*].purchase_style</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>tenders_style</name>
+        <path>$.data[*].tenders_style</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>sale_yn</name>
+        <path>$.data[*].sale_yn</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>steri_yn</name>
+        <path>$.data[*].steri_yn</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>volume_based_purchase_yn</name>
+        <path>$.data[*].volume_based_purchase_yn</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>operation_apply_id</name>
+        <path>$.data[*].operation_apply_id</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>operation_code</name>
+        <path>$.data[*].operation_code</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>operation_name</name>
+        <path>$.data[*].operation_name</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -772,6 +1194,19 @@
       <field>
         <name>remark</name>
         <path>$.data[*].remark</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>medical_insurance_code</name>
+        <path>$.data[*].medical_insurance_code</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -874,6 +1309,32 @@
         <repeat>N</repeat>
       </field>
       <field>
+        <name>is_reminder</name>
+        <path>$.data[*].is_reminder</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>reminder_time</name>
+        <path>$.data[*].reminder_time</path>
+        <type>Timestamp</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
         <name>mixed_time</name>
         <path>$.data[*].mixed_time</path>
         <type>Timestamp</type>
@@ -921,8 +1382,56 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>908</xloc>
-      <yloc>389</yloc>
+      <xloc>980</xloc>
+      <yloc>425</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>JavaScript代码</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>if(content == ""){
+	var isEmpty = 1;
+}else {
+    var isEmpty = 0;
+}</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>isEmpty</name>
+        <rename>isEmpty</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>529</xloc>
+      <yloc>401</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -981,8 +1490,50 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>352</xloc>
-      <yloc>432</yloc>
+      <xloc>336</xloc>
+      <yloc>416</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Switch / case</name>
+    <type>SwitchCase</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fieldname>isEmpty</fieldname>
+    <use_contains>N</use_contains>
+    <case_value_type>None</case_value_type>
+    <case_value_format/>
+    <case_value_decimal/>
+    <case_value_group/>
+    <default_target_step>JSON input</default_target_step>
+    <cases>
+      <case>
+        <value>1</value>
+        <target_step>空操作 (什么也不做)</target_step>
+      </case>
+      <case>
+        <value>0</value>
+        <target_step>JSON input</target_step>
+      </case>
+    </cases>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>721</xloc>
+      <yloc>401</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1036,8 +1587,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>896</xloc>
-      <yloc>736</yloc>
+      <xloc>992</xloc>
+      <yloc>848</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1067,8 +1618,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>224</xloc>
-      <yloc>288</yloc>
+      <xloc>176</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1109,8 +1660,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>896</xloc>
-      <yloc>560</yloc>
+      <xloc>976</xloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1129,8 +1680,8 @@
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
-      <schema>cloud_platform</schema>
-      <table>spd_material_kind</table>
+      <schema>cloud_platform_test</schema>
+      <table>spd_purchase_order_detail</table>
       <key>
         <name>id</name>
         <field>id</field>
@@ -1154,73 +1705,238 @@
         <update>Y</update>
       </value>
       <value>
+        <name>hospital_name</name>
+        <rename>hospital_name</rename>
+        <update>Y</update>
+      </value>
+      <value>
         <name>hospital_area_id</name>
         <rename>hospital_area_id</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>material_kind_code</name>
-        <rename>material_kind_code</rename>
+        <name>hospital_area_name</name>
+        <rename>hospital_area_name</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>material_kind_name</name>
-        <rename>material_kind_name</rename>
+        <name>department_id</name>
+        <rename>department_id</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>material_code_prefix</name>
-        <rename>material_code_prefix</rename>
+        <name>department_name</name>
+        <rename>department_name</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>sort</name>
-        <rename>sort</rename>
+        <name>department_warehouse_id</name>
+        <rename>department_warehouse_id</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>material_category</name>
-        <rename>material_category</rename>
+        <name>department_warehouse_name</name>
+        <rename>department_warehouse_name</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>parent_material_kind_id</name>
-        <rename>parent_material_kind_id</rename>
+        <name>bill_id</name>
+        <rename>purchase_order_id</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>all_parent_material_kind_id</name>
-        <rename>all_parent_material_kind_id</rename>
+        <name>bill_no</name>
+        <rename>purchase_order_code</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>material_kind_level</name>
-        <rename>material_kind_level</rename>
+        <name>purchase_plan_detail_id</name>
+        <rename>purchase_plan_detail_id</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>material_kind_pinyin</name>
-        <rename>material_kind_pinyin</rename>
+        <name>province_code1</name>
+        <rename>province_code1</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>material_kind_wubi</name>
-        <rename>material_kind_wubi</rename>
+        <name>province_code2</name>
+        <rename>province_code2</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>status</name>
-        <rename>status</rename>
+        <name>province_code3</name>
+        <rename>province_code3</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>obsolete_yn</name>
-        <rename>obsolete_yn</rename>
+        <name>material_id</name>
+        <rename>material_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>material_code</name>
+        <rename>material_code</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>material_name</name>
+        <rename>material_name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>material_type</name>
+        <rename>material_type</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>manufacture_id</name>
+        <rename>manufacture_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>manufacture_name</name>
+        <rename>manufacture_name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>material_brand_name</name>
+        <rename>material_brand_name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>material_spec</name>
+        <rename>material_spec</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>material_model</name>
+        <rename>material_model</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>material_spec_model</name>
+        <rename>material_spec_model</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>material_unit</name>
+        <rename>material_unit</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>material_package_unit</name>
+        <rename>material_package_unit</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>organization_id</name>
+        <rename>organization_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>organization_name</name>
+        <rename>org_name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>purchase_source</name>
+        <rename>purchase_source</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>material_price</name>
+        <rename>material_price</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>material_num</name>
+        <rename>material_num</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>material_amount</name>
+        <rename>material_amount</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>receive_num</name>
+        <rename>receive_num</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>shippable_num</name>
+        <rename>shippable_num</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>purchase_order_detail_status</name>
+        <rename>purchase_order_detail_status</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>charge_style</name>
+        <rename>charge_style</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>material_choice_type</name>
+        <rename>material_choice_type</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>material_value_type</name>
+        <rename>material_value_type</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>purchase_style</name>
+        <rename>purchase_style</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>tenders_style</name>
+        <rename>tenders_style</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>sale_yn</name>
+        <rename>sale_yn</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>steri_yn</name>
+        <rename>steri_yn</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>volume_based_purchase_yn</name>
+        <rename>volume_based_purchase_yn</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>operation_apply_id</name>
+        <rename>operation_apply_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>operation_code</name>
+        <rename>operation_code</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>operation_name</name>
+        <rename>operation_name</rename>
         <update>Y</update>
       </value>
       <value>
         <name>remark</name>
         <rename>remark</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>medical_insurance_code</name>
+        <rename>medical_insurance_code</rename>
         <update>Y</update>
       </value>
       <value>
@@ -1259,6 +1975,16 @@
         <update>Y</update>
       </value>
       <value>
+        <name>is_reminder</name>
+        <rename>is_reminder</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>reminder_time</name>
+        <rename>reminder_time</rename>
+        <update>Y</update>
+      </value>
+      <value>
         <name>hin_facility_ident</name>
         <rename>hin_facility_ident</rename>
         <update>N</update>
@@ -1273,8 +1999,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1084</xloc>
-      <yloc>389</yloc>
+      <xloc>1152</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1296,7 +2022,7 @@
     <error_ignored>N</error_ignored>
     <ignore_flag_field/>
     <lookup>
-      <schema>cloud_platform</schema>
+      <schema>cloud_platform_test</schema>
       <table>etl_data_transmission</table>
       <key>
         <name>hin_facility_ident</name>
@@ -1324,8 +2050,33 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1104</xloc>
-      <yloc>736</yloc>
+      <xloc>1216</xloc>
+      <yloc>848</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>空操作 (什么也不做)</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>721</xloc>
+      <yloc>561</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1356,7 +2107,7 @@
     </fields>
     <data>
       <line>
-        <item>material_kind</item>
+        <item>purchase_order_detail</item>
       </line>
     </data>
     <attributes/>
@@ -1368,8 +2119,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>224</xloc>
-      <yloc>160</yloc>
+      <xloc>176</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1385,8 +2136,8 @@
       <schema_name/>
     </partitioning>
     <connection>cloud</connection>
-    <sql>select table_name as tableName,last_update_time as starttime,data_num as size,url as url from cloud_platform.etl_data_transmission 
-where table_name = ? and hospital_name = 'spdtest';</sql>
+    <sql>select table_name as tableName,last_update_time as starttime,data_num as size,url as url from cloud_platform_test.etl_data_transmission 
+where table_name = ? and hospital_name = '${hospitalname}';</sql>
     <limit>0</limit>
     <lookup>字段选择</lookup>
     <execute_each_row>N</execute_each_row>
@@ -1394,6 +2145,29 @@ where table_name = ? and hospital_name = 'spdtest';</sql>
     <lazy_conversion_active>N</lazy_conversion_active>
     <cached_row_meta_active>N</cached_row_meta_active>
     <row-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>tablename</name>
+        <length>255</length>
+        <precision>-1</precision>
+        <origin>表输入</origin>
+        <comments>tablename</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>zh_CN</date_format_locale>
+        <date_format_timezone>Asia/Shanghai</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
       <value-meta>
         <type>Timestamp</type>
         <storagetype>normal</storagetype>
@@ -1473,123 +2247,8 @@ where table_name = ? and hospital_name = 'spdtest';</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>224</xloc>
+      <xloc>192</xloc>
       <yloc>432</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>空操作 (什么也不做)</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>726</xloc>
-      <yloc>582</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Switch / case</name>
-    <type>SwitchCase</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fieldname>isEmpty</fieldname>
-    <use_contains>N</use_contains>
-    <case_value_type>None</case_value_type>
-    <case_value_format/>
-    <case_value_decimal/>
-    <case_value_group/>
-    <default_target_step>JSON input</default_target_step>
-    <cases>
-      <case>
-        <value>1</value>
-        <target_step>空操作 (什么也不做)</target_step>
-      </case>
-      <case>
-        <value>0</value>
-        <target_step>JSON input</target_step>
-      </case>
-    </cases>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>726</xloc>
-      <yloc>422</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>JavaScript代码</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>if(content == ""){
-	var isEmpty = 1;
-}else {
-    var isEmpty = 0;
-}</jsScript_script>
-      </jsScript>
-    </jsScripts>
-    <fields>
-      <field>
-        <name>isEmpty</name>
-        <rename>isEmpty</rename>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>534</xloc>
-      <yloc>422</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

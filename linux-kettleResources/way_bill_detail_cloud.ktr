@@ -6,8 +6,14 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
+      <parameter>
+        <name>hospitalname</name>
+        <default_value>spdtest</default_value>
+        <description/>
+      </parameter>
     </parameters>
     <log>
       <trans-log-table>
@@ -2450,7 +2456,7 @@
     </partitioning>
     <connection>cloud</connection>
     <sql>select table_name as tableName,last_update_time as starttime,data_num as size,url as url from cloud_platform.etl_data_transmission 
-where table_name = ? and hospital_name = 'spdtest';</sql>
+where table_name = ? and hospital_name = '${hospitalname}';</sql>
     <limit>0</limit>
     <lookup>字段选择</lookup>
     <execute_each_row>N</execute_each_row>

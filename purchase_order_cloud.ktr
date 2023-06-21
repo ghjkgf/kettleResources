@@ -495,37 +495,32 @@
   <order>
     <hop>
       <from>JSON input</from>
-      <to>插入 / 更新</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>REST client</from>
-      <to>文本文件输出</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>REST client</from>
-      <to>过滤记录</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>过滤记录</from>
-      <to>JSON input</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>过滤记录</from>
-      <to>空操作 (什么也不做)</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Add constants</from>
-      <to>更新</to>
+      <to>排序记录</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>JSON input</from>
-      <to>排序记录</to>
+      <to>插入 / 更新</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>字段选择</from>
+      <to>表输入</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>自定义常量数据</from>
+      <to>字段选择</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>表输入</from>
+      <to>REST client</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>分组</from>
+      <to>更新</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -534,72 +529,26 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>分组</from>
-      <to>文本文件输出</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>分组</from>
-      <to>Add constants</to>
+      <from>Switch / case</from>
+      <to>空操作 (什么也不做)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>表输入</from>
-      <to>REST client</to>
+      <from>JavaScript代码</from>
+      <to>Switch / case</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>REST client</from>
+      <to>JavaScript代码</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Switch / case</from>
+      <to>JSON input</to>
       <enabled>Y</enabled>
     </hop>
   </order>
-  <step>
-    <name>Add constants</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>tablename</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>purchase_order</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>hospitalname</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>spdtest</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>672</xloc>
-      <yloc>560</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
   <step>
     <name>JSON input</name>
     <type>JsonInput</type>
@@ -1446,8 +1395,56 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>656</xloc>
-      <yloc>208</yloc>
+      <xloc>1200</xloc>
+      <yloc>464</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>JavaScript代码</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>if(content == ""){
+	var isEmpty = 1;
+}else {
+    var isEmpty = 0;
+}</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>isEmpty</name>
+        <rename>isEmpty</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>640</xloc>
+      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1506,8 +1503,50 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>352</xloc>
-      <yloc>208</yloc>
+      <xloc>416</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Switch / case</name>
+    <type>SwitchCase</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fieldname>isEmpty</fieldname>
+    <use_contains>N</use_contains>
+    <case_value_type>None</case_value_type>
+    <case_value_format/>
+    <case_value_decimal/>
+    <case_value_group/>
+    <default_target_step>JSON input</default_target_step>
+    <cases>
+      <case>
+        <value>1</value>
+        <target_step>空操作 (什么也不做)</target_step>
+      </case>
+      <case>
+        <value>0</value>
+        <target_step>JSON input</target_step>
+      </case>
+    </cases>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>880</xloc>
+      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1539,6 +1578,18 @@
         <type>FIRST_INCL_NULL</type>
         <valuefield/>
       </field>
+      <field>
+        <aggregate>hin_facility_ident</aggregate>
+        <subject>hin_facility_ident</subject>
+        <type>FIRST</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>tablename</aggregate>
+        <subject>tablename</subject>
+        <type>FIRST</type>
+        <valuefield/>
+      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -1549,8 +1600,39 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>512</xloc>
-      <yloc>560</yloc>
+      <xloc>1077</xloc>
+      <yloc>781</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>字段选择</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>tableName</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>224</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1591,8 +1673,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>512</xloc>
-      <yloc>384</yloc>
+      <xloc>1056</xloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1698,7 +1780,7 @@
       <value>
         <name>hin_facility_ident</name>
         <rename>hin_facility_ident</rename>
-        <update>N</update>
+        <update>Y</update>
       </value>
       <value>
         <name>hospital_area_id</name>
@@ -1723,7 +1805,7 @@
       <value>
         <name>id</name>
         <rename>id</rename>
-        <update>N</update>
+        <update>Y</update>
       </value>
       <value>
         <name>material_amount</name>
@@ -1786,7 +1868,7 @@
         <update>Y</update>
       </value>
       <value>
-        <name>org_name</name>
+        <name>organization_name</name>
         <rename>org_name</rename>
         <update>Y</update>
       </value>
@@ -1806,7 +1888,7 @@
         <update>Y</update>
       </value>
       <value>
-        <name>purchase_order_code</name>
+        <name>bill_no</name>
         <rename>purchase_order_code</rename>
         <update>Y</update>
       </value>
@@ -1816,7 +1898,7 @@
         <update>Y</update>
       </value>
       <value>
-        <name>purchase_order_status</name>
+        <name>bill_status</name>
         <rename>purchase_order_status</rename>
         <update>Y</update>
       </value>
@@ -1935,76 +2017,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>832</xloc>
-      <yloc>208</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>文本文件输出</name>
-    <type>TextFileOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <separator/>
-    <enclosure/>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>Y</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding/>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name>D:\\c.txt</name>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention/>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>N</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery/>
-    </file>
-    <fields>
-      <field>
-        <name>max</name>
-        <type>Timestamp</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>240</xloc>
+      <xloc>1376</xloc>
       <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2030,7 +2043,7 @@
       <schema>cloud_platform</schema>
       <table>etl_data_transmission</table>
       <key>
-        <name>hospitalname</name>
+        <name>hin_facility_ident</name>
         <field>hospital_name</field>
         <condition>=</condition>
         <name2/>
@@ -2055,8 +2068,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
-      <yloc>560</yloc>
+      <xloc>1333</xloc>
+      <yloc>781</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2080,8 +2093,52 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>528</xloc>
-      <yloc>64</yloc>
+      <xloc>832</xloc>
+      <yloc>624</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>自定义常量数据</name>
+    <type>DataGrid</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>tableName</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+        <field_null_if/>
+      </field>
+    </fields>
+    <data>
+      <line>
+        <item>purchase_order</item>
+      </line>
+    </data>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>224</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2097,15 +2154,38 @@
       <schema_name/>
     </partitioning>
     <connection>cloud</connection>
-    <sql>select last_update_time as starttime,data_num as size,url as url from cloud_platform.etl_data_transmission 
-where table_name = 'purchase_order' and hospital_name = 'spdtest';</sql>
+    <sql>select table_name as tableName,last_update_time as starttime,data_num as size,url as url from cloud_platform.etl_data_transmission 
+where table_name = ? and hospital_name = 'spdtest';</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup>字段选择</lookup>
     <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
+    <variables_active>Y</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
     <cached_row_meta_active>N</cached_row_meta_active>
     <row-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>tablename</name>
+        <length>255</length>
+        <precision>-1</precision>
+        <origin>表输入</origin>
+        <comments>tablename</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>zh_CN</date_format_locale>
+        <date_format_timezone>Asia/Shanghai</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
       <value-meta>
         <type>Timestamp</type>
         <storagetype>normal</storagetype>
@@ -2185,43 +2265,8 @@ where table_name = 'purchase_order' and hospital_name = 'spdtest';</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>176</xloc>
-      <yloc>208</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>过滤记录</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>JSON input</send_true_to>
-    <send_false_to>空操作 (什么也不做)</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>content</leftvalue>
-        <function>IS NOT NULL</function>
-        <rightvalue/>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>528</xloc>
-      <yloc>208</yloc>
+      <xloc>224</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

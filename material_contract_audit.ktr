@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>purchase_order</name>
+    <name>material_contract_audit</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -428,10 +427,10 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2023/06/06 17:47:07.421</created_date>
+    <created_date>2023/06/19 15:47:52.346</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2023/06/06 17:47:07.421</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <modified_date>2023/06/19 15:47:52.346</modified_date>
+    <key_for_session_key/>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -489,13 +488,18 @@
   </connection>
   <order>
     <hop>
-      <from>表输入</from>
-      <to>添加医院代号</to>
+      <from>字段选择</from>
+      <to>表输入</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>添加医院代号</from>
+      <from>表输入</from>
       <to>JSON output</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>配置文件输入</from>
+      <to>字段选择</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -543,200 +547,84 @@
         <element>hospital_name</element>
       </field>
       <field>
-        <name>hospital_area_id</name>
-        <element>hospital_area_id</element>
+        <name>material_product_organization_id</name>
+        <element>material_product_organization_id</element>
       </field>
       <field>
-        <name>hospital_area_name</name>
-        <element>hospital_area_name</element>
-      </field>
-      <field>
-        <name>purchase_order_code</name>
-        <element>purchase_order_code</element>
+        <name>material_product_id</name>
+        <element>material_product_id</element>
       </field>
       <field>
         <name>organization_id</name>
         <element>organization_id</element>
       </field>
       <field>
-        <name>org_name</name>
-        <element>org_name</element>
+        <name>material_id</name>
+        <element>material_id</element>
       </field>
       <field>
-        <name>center_warehouse_id</name>
-        <element>center_warehouse_id</element>
+        <name>material_code</name>
+        <element>material_code</element>
       </field>
       <field>
-        <name>center_warehouse_name</name>
-        <element>center_warehouse_name</element>
+        <name>material_name</name>
+        <element>material_name</element>
       </field>
       <field>
-        <name>receive_user_name</name>
-        <element>receive_user_name</element>
+        <name>material_spec</name>
+        <element>material_spec</element>
       </field>
       <field>
-        <name>receive_user_telephone</name>
-        <element>receive_user_telephone</element>
+        <name>material_model</name>
+        <element>material_model</element>
       </field>
       <field>
-        <name>province_purchase_yn</name>
-        <element>province_purchase_yn</element>
+        <name>material_spec_model</name>
+        <element>material_spec_model</element>
       </field>
       <field>
-        <name>purchase_source</name>
-        <element>purchase_source</element>
+        <name>material_unit</name>
+        <element>material_unit</element>
       </field>
       <field>
-        <name>purchage_plan_id</name>
-        <element>purchage_plan_id</element>
+        <name>medical_insurance_code</name>
+        <element>medical_insurance_code</element>
       </field>
       <field>
-        <name>material_kind_num</name>
-        <element>material_kind_num</element>
+        <name>province_code1</name>
+        <element>province_code1</element>
       </field>
       <field>
-        <name>material_num</name>
-        <element>material_num</element>
+        <name>udi_primary_code</name>
+        <element>udi_primary_code</element>
       </field>
       <field>
-        <name>material_amount</name>
-        <element>material_amount</element>
+        <name>udi_second_code</name>
+        <element>udi_second_code</element>
       </field>
       <field>
-        <name>purchase_user_id</name>
-        <element>purchase_user_id</element>
+        <name>authorize_start_time</name>
+        <element>authorize_start_time</element>
       </field>
       <field>
-        <name>purchase_user_name</name>
-        <element>purchase_user_name</element>
+        <name>authorize_end_time</name>
+        <element>authorize_end_time</element>
       </field>
       <field>
-        <name>apply_time</name>
-        <element>apply_time</element>
+        <name>material_price</name>
+        <element>material_price</element>
       </field>
       <field>
-        <name>audit_user_id</name>
-        <element>audit_user_id</element>
+        <name>audit_status</name>
+        <element>audit_status</element>
       </field>
       <field>
-        <name>audit_user_name</name>
-        <element>audit_user_name</element>
+        <name>audit_reason</name>
+        <element>audit_reason</element>
       </field>
       <field>
-        <name>audit_time</name>
-        <element>audit_time</element>
-      </field>
-      <field>
-        <name>audit_remark</name>
-        <element>audit_remark</element>
-      </field>
-      <field>
-        <name>order_user_id</name>
-        <element>order_user_id</element>
-      </field>
-      <field>
-        <name>order_user_name</name>
-        <element>order_user_name</element>
-      </field>
-      <field>
-        <name>order_time</name>
-        <element>order_time</element>
-      </field>
-      <field>
-        <name>order_remark</name>
-        <element>order_remark</element>
-      </field>
-      <field>
-        <name>close_user_id</name>
-        <element>close_user_id</element>
-      </field>
-      <field>
-        <name>close_user_name</name>
-        <element>close_user_name</element>
-      </field>
-      <field>
-        <name>close_time</name>
-        <element>close_time</element>
-      </field>
-      <field>
-        <name>close_reason</name>
-        <element>close_reason</element>
-      </field>
-      <field>
-        <name>order_complete_time</name>
-        <element>order_complete_time</element>
-      </field>
-      <field>
-        <name>purchase_order_status</name>
-        <element>purchase_order_status</element>
-      </field>
-      <field>
-        <name>purchase_order_source</name>
-        <element>purchase_order_source</element>
-      </field>
-      <field>
-        <name>send_result</name>
-        <element>send_result</element>
-      </field>
-      <field>
-        <name>order_push_status</name>
-        <element>order_push_status</element>
-      </field>
-      <field>
-        <name>purchase_plan_no</name>
-        <element>purchase_plan_no</element>
-      </field>
-      <field>
-        <name>waybill_status</name>
-        <element>waybill_status</element>
-      </field>
-      <field>
-        <name>send_status</name>
-        <element>send_status</element>
-      </field>
-      <field>
-        <name>purchase_style</name>
-        <element>purchase_style</element>
-      </field>
-      <field>
-        <name>tenders_style</name>
-        <element>tenders_style</element>
-      </field>
-      <field>
-        <name>sale_yn</name>
-        <element>sale_yn</element>
-      </field>
-      <field>
-        <name>steri_yn</name>
-        <element>steri_yn</element>
-      </field>
-      <field>
-        <name>volume_based_purchase_yn</name>
-        <element>volume_based_purchase_yn</element>
-      </field>
-      <field>
-        <name>material_choice_type</name>
-        <element>material_choice_type</element>
-      </field>
-      <field>
-        <name>material_value_type</name>
-        <element>material_value_type</element>
-      </field>
-      <field>
-        <name>store_condition</name>
-        <element>store_condition</element>
-      </field>
-      <field>
-        <name>transport_condition</name>
-        <element>transport_condition</element>
-      </field>
-      <field>
-        <name>receive_user_id</name>
-        <element>receive_user_id</element>
-      </field>
-      <field>
-        <name>urgent_yn</name>
-        <element>urgent_yn</element>
+        <name>data_source</name>
+        <element>data_source</element>
       </field>
       <field>
         <name>create_by</name>
@@ -763,16 +651,12 @@
         <element>update_time</element>
       </field>
       <field>
-        <name>material_use_type</name>
-        <element>material_use_type</element>
+        <name>mixed_time</name>
+        <element>mixed_time</element>
       </field>
       <field>
         <name>hin_facility_ident</name>
         <element>hin_facility_ident</element>
-      </field>
-      <field>
-        <name>mixed_time</name>
-        <element>mixed_time</element>
       </field>
     </fields>
     <attributes/>
@@ -784,14 +668,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
-      <yloc>208</yloc>
+      <xloc>916</xloc>
+      <yloc>351</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>添加医院代号</name>
-    <type>Constant</type>
+    <name>字段选择</name>
+    <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -803,16 +687,8 @@
     <fields>
       <field>
         <name>hin_facility_ident</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>spdtest</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
       </field>
+      <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -823,8 +699,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>288</xloc>
-      <yloc>208</yloc>
+      <xloc>644</xloc>
+      <yloc>351</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -840,12 +716,12 @@
       <schema_name/>
     </partitioning>
     <connection>spd</connection>
-    <sql>SELECT tmp.* from (
-SELECT *,COALESCE(update_time,create_time) mixed_time from purchase_order 
+    <sql>SELECT tmp.*,? as hin_facility_ident from (
+SELECT *,COALESCE(update_time,create_time) mixed_time from material_contract_audit
 ) tmp
 where tmp.mixed_time>=to_timestamp('${starttime}', 'YYYY/MM/DD HH24:MI:SS.US') ORDER BY mixed_time limit ${size} </sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup>字段选择</lookup>
     <execute_each_row>N</execute_each_row>
     <variables_active>Y</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
@@ -923,11 +799,11 @@ where tmp.mixed_time>=to_timestamp('${starttime}', 'YYYY/MM/DD HH24:MI:SS.US') O
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>hospital_area_id</name>
+        <name>material_product_organization_id</name>
         <length>64</length>
         <precision>-1</precision>
         <origin>表输入</origin>
-        <comments>hospital_area_id</comments>
+        <comments>material_product_organization_id</comments>
         <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
@@ -946,34 +822,11 @@ where tmp.mixed_time>=to_timestamp('${starttime}', 'YYYY/MM/DD HH24:MI:SS.US') O
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>hospital_area_name</name>
-        <length>200</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>hospital_area_name</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>purchase_order_code</name>
+        <name>material_product_id</name>
         <length>64</length>
         <precision>-1</precision>
         <origin>表输入</origin>
-        <comments>purchase_order_code</comments>
+        <comments>material_product_id</comments>
         <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
@@ -1015,34 +868,11 @@ where tmp.mixed_time>=to_timestamp('${starttime}', 'YYYY/MM/DD HH24:MI:SS.US') O
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>org_name</name>
-        <length>300</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>org_name</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>center_warehouse_id</name>
+        <name>material_id</name>
         <length>64</length>
         <precision>-1</precision>
         <origin>表输入</origin>
-        <comments>center_warehouse_id</comments>
+        <comments>material_id</comments>
         <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
@@ -1061,11 +891,34 @@ where tmp.mixed_time>=to_timestamp('${starttime}', 'YYYY/MM/DD HH24:MI:SS.US') O
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>center_warehouse_name</name>
+        <name>material_code</name>
+        <length>64</length>
+        <precision>-1</precision>
+        <origin>表输入</origin>
+        <comments>material_code</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>zh_CN</date_format_locale>
+        <date_format_timezone>Asia/Shanghai</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>material_name</name>
         <length>200</length>
         <precision>-1</precision>
         <origin>表输入</origin>
-        <comments>center_warehouse_name</comments>
+        <comments>material_name</comments>
         <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
@@ -1084,11 +937,80 @@ where tmp.mixed_time>=to_timestamp('${starttime}', 'YYYY/MM/DD HH24:MI:SS.US') O
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>receive_user_name</name>
+        <name>material_spec</name>
+        <length>300</length>
+        <precision>-1</precision>
+        <origin>表输入</origin>
+        <comments>material_spec</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>zh_CN</date_format_locale>
+        <date_format_timezone>Asia/Shanghai</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>material_model</name>
+        <length>300</length>
+        <precision>-1</precision>
+        <origin>表输入</origin>
+        <comments>material_model</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>zh_CN</date_format_locale>
+        <date_format_timezone>Asia/Shanghai</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>material_spec_model</name>
+        <length>600</length>
+        <precision>-1</precision>
+        <origin>表输入</origin>
+        <comments>material_spec_model</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>zh_CN</date_format_locale>
+        <date_format_timezone>Asia/Shanghai</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>material_unit</name>
         <length>20</length>
         <precision>-1</precision>
         <origin>表输入</origin>
-        <comments>receive_user_name</comments>
+        <comments>material_unit</comments>
         <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
@@ -1107,80 +1029,11 @@ where tmp.mixed_time>=to_timestamp('${starttime}', 'YYYY/MM/DD HH24:MI:SS.US') O
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>receive_user_telephone</name>
-        <length>20</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>receive_user_telephone</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>province_purchase_yn</name>
-        <length>2</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>province_purchase_yn</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>purchase_source</name>
-        <length>20</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>purchase_source</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>purchage_plan_id</name>
+        <name>medical_insurance_code</name>
         <length>64</length>
         <precision>-1</precision>
         <origin>表输入</origin>
-        <comments>purchage_plan_id</comments>
+        <comments>medical_insurance_code</comments>
         <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
@@ -1197,82 +1050,13 @@ where tmp.mixed_time>=to_timestamp('${starttime}', 'YYYY/MM/DD HH24:MI:SS.US') O
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>material_kind_num</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>表输入</origin>
-        <comments>material_kind_num</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>material_num</name>
-        <length>19</length>
-        <precision>6</precision>
-        <origin>表输入</origin>
-        <comments>material_num</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>material_amount</name>
-        <length>19</length>
-        <precision>6</precision>
-        <origin>表输入</origin>
-        <comments>material_amount</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>purchase_user_id</name>
+        <name>province_code1</name>
         <length>64</length>
         <precision>-1</precision>
         <origin>表输入</origin>
-        <comments>purchase_user_id</comments>
+        <comments>province_code1</comments>
         <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
@@ -1291,11 +1075,34 @@ where tmp.mixed_time>=to_timestamp('${starttime}', 'YYYY/MM/DD HH24:MI:SS.US') O
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>purchase_user_name</name>
-        <length>20</length>
+        <name>udi_primary_code</name>
+        <length>500</length>
         <precision>-1</precision>
         <origin>表输入</origin>
-        <comments>purchase_user_name</comments>
+        <comments>udi_primary_code</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>zh_CN</date_format_locale>
+        <date_format_timezone>Asia/Shanghai</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>udi_second_code</name>
+        <length>500</length>
+        <precision>-1</precision>
+        <origin>表输入</origin>
+        <comments>udi_second_code</comments>
         <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
@@ -1314,11 +1121,11 @@ where tmp.mixed_time>=to_timestamp('${starttime}', 'YYYY/MM/DD HH24:MI:SS.US') O
       <value-meta>
         <type>Timestamp</type>
         <storagetype>normal</storagetype>
-        <name>apply_time</name>
+        <name>authorize_start_time</name>
         <length>0</length>
         <precision>-1</precision>
         <origin>表输入</origin>
-        <comments>apply_time</comments>
+        <comments>authorize_start_time</comments>
         <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
@@ -1335,13 +1142,59 @@ where tmp.mixed_time>=to_timestamp('${starttime}', 'YYYY/MM/DD HH24:MI:SS.US') O
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
+        <type>Timestamp</type>
+        <storagetype>normal</storagetype>
+        <name>authorize_end_time</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>表输入</origin>
+        <comments>authorize_end_time</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>zh_CN</date_format_locale>
+        <date_format_timezone>Asia/Shanghai</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>material_price</name>
+        <length>19</length>
+        <precision>6</precision>
+        <origin>表输入</origin>
+        <comments>material_price</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>zh_CN</date_format_locale>
+        <date_format_timezone>Asia/Shanghai</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>audit_user_id</name>
+        <name>audit_status</name>
         <length>64</length>
         <precision>-1</precision>
         <origin>表输入</origin>
-        <comments>audit_user_id</comments>
+        <comments>audit_status</comments>
         <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
@@ -1360,678 +1213,34 @@ where tmp.mixed_time>=to_timestamp('${starttime}', 'YYYY/MM/DD HH24:MI:SS.US') O
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>audit_user_name</name>
+        <name>audit_reason</name>
+        <length>2000</length>
+        <precision>-1</precision>
+        <origin>表输入</origin>
+        <comments>audit_reason</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>zh_CN</date_format_locale>
+        <date_format_timezone>Asia/Shanghai</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>data_source</name>
         <length>30</length>
         <precision>-1</precision>
         <origin>表输入</origin>
-        <comments>audit_user_name</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>audit_time</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>audit_time</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>audit_remark</name>
-        <length>500</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>audit_remark</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>order_user_id</name>
-        <length>64</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>order_user_id</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>order_user_name</name>
-        <length>20</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>order_user_name</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>order_time</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>order_time</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>order_remark</name>
-        <length>500</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>order_remark</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>close_user_id</name>
-        <length>64</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>close_user_id</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>close_user_name</name>
-        <length>20</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>close_user_name</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>close_time</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>close_time</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>close_reason</name>
-        <length>500</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>close_reason</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>order_complete_time</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>order_complete_time</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>purchase_order_status</name>
-        <length>20</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>purchase_order_status</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>purchase_order_source</name>
-        <length>20</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>purchase_order_source</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>send_result</name>
-        <length>20</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>send_result</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>order_push_status</name>
-        <length>20</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>order_push_status</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>purchase_plan_no</name>
-        <length>64</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>purchase_plan_no</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>waybill_status</name>
-        <length>20</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>waybill_status</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>send_status</name>
-        <length>20</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>send_status</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>purchase_style</name>
-        <length>20</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>purchase_style</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>tenders_style</name>
-        <length>20</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>tenders_style</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>sale_yn</name>
-        <length>2</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>sale_yn</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>steri_yn</name>
-        <length>2</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>steri_yn</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>volume_based_purchase_yn</name>
-        <length>2</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>volume_based_purchase_yn</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>material_choice_type</name>
-        <length>20</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>material_choice_type</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>material_value_type</name>
-        <length>20</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>material_value_type</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>store_condition</name>
-        <length>500</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>store_condition</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>transport_condition</name>
-        <length>20</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>transport_condition</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>receive_user_id</name>
-        <length>64</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>receive_user_id</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>zh_CN</date_format_locale>
-        <date_format_timezone>Asia/Shanghai</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>urgent_yn</name>
-        <length>2</length>
-        <precision>-1</precision>
-        <origin>表输入</origin>
-        <comments>urgent_yn</comments>
+        <comments>data_source</comments>
         <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
@@ -2186,13 +1395,13 @@ where tmp.mixed_time>=to_timestamp('${starttime}', 'YYYY/MM/DD HH24:MI:SS.US') O
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>String</type>
+        <type>Timestamp</type>
         <storagetype>normal</storagetype>
-        <name>material_use_type</name>
-        <length>20</length>
+        <name>mixed_time</name>
+        <length>0</length>
         <precision>-1</precision>
         <origin>表输入</origin>
-        <comments>material_use_type</comments>
+        <comments>mixed_time</comments>
         <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
@@ -2241,8 +1450,78 @@ where tmp.mixed_time>=to_timestamp('${starttime}', 'YYYY/MM/DD HH24:MI:SS.US') O
       </output>
     </remotesteps>
     <GUI>
-      <xloc>192</xloc>
-      <yloc>208</yloc>
+      <xloc>788</xloc>
+      <yloc>335</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>配置文件输入</name>
+    <type>PropertyInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <file_type>property</file_type>
+    <encoding>UTF-8</encoding>
+    <include>N</include>
+    <include_field/>
+    <filename_Field/>
+    <rownum>N</rownum>
+    <isaddresult>N</isaddresult>
+    <filefield>N</filefield>
+    <rownum_field/>
+    <resetrownumber>N</resetrownumber>
+    <resolvevaluevariable>N</resolvevaluevariable>
+    <ini_section>N</ini_section>
+    <ini_section_field/>
+    <section/>
+    <file>
+      <name>C:\Users\hougu\Desktop\kettleResources\ktrConfig.properties</name>
+      <exclude_filemask/>
+      <filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+    </file>
+    <fields>
+      <field>
+        <name>hin_facility_ident</name>
+        <column>value</column>
+        <type>String</type>
+        <format/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <currency/>
+        <decimal/>
+        <group/>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
+    <limit>0</limit>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>500</xloc>
+      <yloc>367</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
