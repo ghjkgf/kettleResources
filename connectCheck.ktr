@@ -1403,7 +1403,7 @@
     <ignore_flag_field/>
     <lookup>
       <schema>cloud_platform</schema>
-      <table>etl_data_transmission</table>
+      <table>etl_data_up_transmission</table>
       <key>
         <name>hin_facility_ident</name>
         <field>hospital_name</field>
@@ -1516,7 +1516,7 @@
       <schema_name/>
     </partitioning>
     <connection>cloud</connection>
-    <sql>select table_name as tableName,last_update_time as starttime,data_num as size,url as url from cloud_platform.etl_data_transmission 
+    <sql>select table_name as tableName,last_update_time as starttime,data_num as size,url as url from cloud_platform.etl_data_up_transmission 
 where table_name = ? and hospital_name = 'spdtest';</sql>
     <limit>0</limit>
     <lookup>字段选择</lookup>

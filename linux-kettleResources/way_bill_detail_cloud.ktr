@@ -11,7 +11,7 @@
     <parameters>
       <parameter>
         <name>hospitalname</name>
-        <default_value>spdtest</default_value>
+        <default_value/>
         <description/>
       </parameter>
     </parameters>
@@ -416,7 +416,7 @@
     <size_rowset>10000</size_rowset>
     <sleep_time_empty>50</sleep_time_empty>
     <sleep_time_full>50</sleep_time_full>
-    <unique_connections>N</unique_connections>
+    <unique_connections>Y</unique_connections>
     <feedback_shown>Y</feedback_shown>
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
@@ -519,11 +519,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>分组</from>
-      <to>更新</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>排序记录</from>
       <to>分组</to>
       <enabled>Y</enabled>
@@ -546,6 +541,16 @@
     <hop>
       <from>Switch / case</from>
       <to>JSON input</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>分组</from>
+      <to>阻塞数据直到步骤都完成</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>阻塞数据直到步骤都完成</from>
+      <to>更新</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1911,7 +1916,7 @@
       <schema_name/>
     </partitioning>
     <connection>cloud</connection>
-    <commit>100</commit>
+    <commit>1000</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema>cloud_platform</schema>
@@ -2342,7 +2347,7 @@
     <ignore_flag_field/>
     <lookup>
       <schema>cloud_platform</schema>
-      <table>etl_data_transmission</table>
+      <table>etl_data_up_transmission</table>
       <key>
         <name>hin_facility_ident</name>
         <field>hospital_name</field>
@@ -2455,7 +2460,7 @@
       <schema_name/>
     </partitioning>
     <connection>cloud</connection>
-    <sql>select table_name as tableName,last_update_time as starttime,data_num as size,url as url from cloud_platform.etl_data_transmission 
+    <sql>select table_name as tableName,last_update_time as starttime,data_num as size,url as url from cloud_platform.etl_data_up_transmission 
 where table_name = ? and hospital_name = '${hospitalname}';</sql>
     <limit>0</limit>
     <lookup>字段选择</lookup>
@@ -2568,6 +2573,37 @@ where table_name = ? and hospital_name = '${hospitalname}';</sql>
     <GUI>
       <xloc>176</xloc>
       <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>阻塞数据直到步骤都完成</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <steps>
+      <step>
+        <name>插入 / 更新</name>
+        <CopyNr>0</CopyNr>
+      </step>
+    </steps>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1312</xloc>
+      <yloc>720</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

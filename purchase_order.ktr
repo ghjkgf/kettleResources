@@ -794,6 +794,37 @@
     </GUI>
   </step>
   <step>
+    <name>字段选择</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>hin_facility_ident</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>341</xloc>
+      <yloc>222</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>表输入</name>
     <type>TableInput</type>
     <description/>
@@ -1731,7 +1762,7 @@ where tmp.mixed_time>=to_timestamp('${starttime}', 'YYYY/MM/DD HH24:MI:SS.US') O
     <ini_section_field/>
     <section/>
     <file>
-      <name>C:\Users\hougu\Desktop\kettleResources\ktrConfig.properties</name>
+      <name>${Internal.Entry.Current.Directory}/ktrConfig.properties</name>
       <exclude_filemask/>
       <filemask/>
       <file_required>N</file_required>
@@ -1771,38 +1802,6 @@ where tmp.mixed_time>=to_timestamp('${starttime}', 'YYYY/MM/DD HH24:MI:SS.US') O
     </remotesteps>
     <GUI>
       <xloc>197</xloc>
-      <yloc>222</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>字段选择</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>hin_facility_ident</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>341</xloc>
       <yloc>222</yloc>
       <draw>Y</draw>
     </GUI>

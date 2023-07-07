@@ -2028,7 +2028,7 @@
     <ignore_flag_field/>
     <lookup>
       <schema>cloud_platform</schema>
-      <table>etl_data_transmission</table>
+      <table>etl_data_up_transmission</table>
       <key>
         <name>hospitalname</name>
         <field>hospital_name</field>
@@ -2097,7 +2097,7 @@
       <schema_name/>
     </partitioning>
     <connection>cloud</connection>
-    <sql>select last_update_time as starttime,data_num as size from cloud_platform.etl_data_transmission 
+    <sql>select last_update_time as starttime,data_num as size from cloud_platform.etl_data_up_transmission 
 where table_name = 'purchase_order' and hospital_name = 'spdtest';</sql>
     <limit>0</limit>
     <lookup/>

@@ -287,28 +287,6 @@
   <shared_objects_file/>
   <entries>
     <entry>
-      <name>Start</name>
-      <description/>
-      <type>SPECIAL</type>
-      <attributes/>
-      <start>Y</start>
-      <dummy>N</dummy>
-      <repeat>Y</repeat>
-      <schedulerType>1</schedulerType>
-      <intervalSeconds>0</intervalSeconds>
-      <intervalMinutes>30</intervalMinutes>
-      <hour>12</hour>
-      <minutes>0</minutes>
-      <weekDay>1</weekDay>
-      <DayOfMonth>1</DayOfMonth>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>272</xloc>
-      <yloc>352</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
       <name>转换</name>
       <description/>
       <type>TRANS</type>
@@ -344,6 +322,28 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>432</xloc>
+      <yloc>352</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Start</name>
+      <description/>
+      <type>SPECIAL</type>
+      <attributes/>
+      <start>Y</start>
+      <dummy>N</dummy>
+      <repeat>Y</repeat>
+      <schedulerType>1</schedulerType>
+      <intervalSeconds>0</intervalSeconds>
+      <intervalMinutes>30</intervalMinutes>
+      <hour>12</hour>
+      <minutes>0</minutes>
+      <weekDay>1</weekDay>
+      <DayOfMonth>1</DayOfMonth>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>272</xloc>
       <yloc>352</yloc>
       <attributes_kjc/>
     </entry>

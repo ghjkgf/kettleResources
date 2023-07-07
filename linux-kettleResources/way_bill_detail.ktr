@@ -2750,7 +2750,7 @@ where tmp.mixed_time>=to_timestamp('${starttime}', 'YYYY/MM/DD HH24:MI:SS.US') O
     <ini_section_field/>
     <section/>
     <file>
-      <name>/home/spd/kettleFile/ktrConfig.properties</name>
+      <name>${Internal.Entry.Current.Directory}/ktrConfig.properties</name>
       <exclude_filemask/>
       <filemask/>
       <file_required>N</file_required>
